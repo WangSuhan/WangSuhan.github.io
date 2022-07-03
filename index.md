@@ -2,47 +2,35 @@
 <table border="0">
   <tr>
     <td width="75%">
-      <h1>张三</h1>
-      <p><b>硕士研究生</b></p>
-      <p><b>××大学××学院</b></p>
-      <p><b>邮箱：1234567789@qq.com</b></p>
-      <p><b>地址：××市××区××路××号××大学，××楼，邮编×××</b></p>
-      <p><a href="/index-en.html">English Version</a></p>
-    </td>
-    <td width="25%">
-      <img src="/zhengjianzhao.jpg" width="100%">
+      <h1>BowenHuang</h1>
+      <p><b>email:bw_huang@163.com</b></p>
     </td>
   </tr>
 </table>
 </div>
 
----
 
-张三，男，个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介个人简介
 
----
+### EDUCATION
+B.S. in Theoretical and Applied Mechanics, Fudan University, 2021
 
-### 最新消息
-1. 消息1×××
+### RESEARCH EXPERIENCE
+- Image denoising based on LMS algorithm
+- Modeling and Simulation of pedestrian evacuation in library
 
-### 研究方向
-- 文本挖掘
-- 知识图谱
+### SKILLS
+- Language:C++, Matlab, Netlogo, Python
+- CAD
 
-### 荣誉奖励
-- 奖学金
-- 荣誉称号
-- 比赛获奖
 
-### 项目研究
-#### 公司/学校/研究所（2013.9~2017.6）
-- **项目1**  
-项目描述
-- **项目2**  
-项目描述
+### Awards
+- Third prize in national College Mathematics Competition
+- Undergraduate Outstanding Student Scholarship third prize, Fudan University
 
-#### 公司/学校/研究所（2017.9~至今）
-- **项目1**  
-项目描述
-- **项目2**  
-项目描述
+### INTEREST
+- Robotics
+
+### MAIN COURSES
+- MATH: Mathematical Analysis, Higher Algebra and Analytic Geometry, Ordinary Differential Equation, Mathematical Physical Equation, Computing Method, optimization design, Engineering Mathematics(Complex Function and Integral Transform), Probability and Mathematical Statistics
+- Mechanics: Theoretical Mechanics, Mechanics of Materials, Solid Mechanics, Fluid Mechanics, Elastic Mechanics, Fundamentals of Vibration, Dynamics and Control
+- OTHERS : Programming, Basics of analog electronics, Principle of Automatic Control, Engineering System Modeling and Control, Digital Signal Processing, CAD and Engineering Graphics Fundamentals
