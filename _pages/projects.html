@@ -5,35 +5,50 @@ permalink: /projects/
 author_profile: true
 ---
 
-<div class="grid__wrapper">
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+  <div class="sidebar sticky">
+    {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+    {% if page.sidebar %}
+      {% for s in page.sidebar %}
+        {% if s.image %}
+          <img src="{{ s.image | relative_url }}"
+             alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+        {% endif %}
+        {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+        {% if s.text %}{{ s.text | markdownify }}{% endif %}
+        {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}
+
+<div class="archive" style="width: 100% !important; padding-right: 0 !important;">
   {% for post in site.projects %}
-    <div class="grid__item">
-      <div class="archive__item">
-        <div class="project-container">
-          {% if post.header.teaser %}
-            <div class="project-image">
-              <img src="{{ post.header.teaser | relative_url }}" alt="">
+    <div class="project-item" style="margin-bottom: 2em;">
+      <div class="project-container">
+        {% if post.header.teaser %}
+          <div class="project-image">
+            <img src="{{ post.header.teaser | relative_url }}" alt="">
+          </div>
+        {% endif %}
+        <div class="project-content">
+          <h2 class="project-title">
+            {% if post.repository_url %}
+              <a href="{{ post.repository_url }}" target="_blank">
+                {{ post.title }}
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            {% else %}
+              {{ post.title }}
+            {% endif %}
+          </h2>
+          {% if post.excerpt %}
+            <div class="project-excerpt">
+              {{ post.excerpt }}
             </div>
           {% endif %}
-          <div class="project-content">
-            <h2 class="archive__item-title">
-              {% if post.repository_url %}
-                <a href="{{ post.repository_url }}" target="_blank">
-                  {{ post.title }}
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-              {% else %}
-                {{ post.title }}
-              {% endif %}
-            </h2>
-            {% if post.excerpt %}
-              <div class="archive__item-excerpt">
-                {{ post.excerpt }}
-              </div>
-            {% endif %}
-            <div class="archive__item-body">
-              {{ post.content | remove_first: post.excerpt }}
-            </div>
+          <div class="project-body">
+            {{ post.content | remove_first: post.excerpt }}
           </div>
         </div>
       </div>
@@ -42,84 +57,78 @@ author_profile: true
 </div>
 
 <style>
-  .grid__wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+.archive {
+  padding-right: 0 !important;
+  width: 100% !important;
+}
 
-  .grid__item {
-    margin-bottom: 30px;
-  }
+.project-container {
+  display: flex !important;
+  gap: 30px !important;
+  background: #fff !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  margin: 0 !important;
+}
 
-  .archive__item {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 25px;
-  }
+.project-image {
+  flex: 0 0 200px !important;
+  min-width: 200px !important;
+  margin: 0 !important;
+}
 
+.project-image img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 4px !important;
+  margin: 0 !important;
+}
+
+.project-content {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: calc(100% - 230px) !important;
+  padding-left: 0 !important;
+}
+
+.project-title {
+  margin: 0 0 15px 0 !important;
+  font-size: 1.5em !important;
+}
+
+.project-title a {
+  text-decoration: none !important;
+  color: #333 !important;
+}
+
+.project-title a:hover {
+  color: #0366d6 !important;
+}
+
+.project-excerpt {
+  margin-bottom: 15px !important;
+  color: #666 !important;
+}
+
+.project-body {
+  color: #333 !important;
+  line-height: 1.6 !important;
+}
+
+@media screen and (max-width: 768px) {
   .project-container {
-    display: flex;
-    gap: 30px;
+    flex-direction: column !important;
   }
 
   .project-image {
-    flex: 0 0 200px;
-  }
-
-  .project-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
+    flex: none !important;
+    width: 100% !important;
   }
 
   .project-content {
-    flex: 0 0 calc(100% - 230px);  /* 考虑到gap的30px */
+    width: 100% !important;
+    padding: 15px 0 0 0 !important;
   }
-
-  .archive__item-title {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-  }
-
-  .archive__item-title a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-
-  .archive__item-title a:hover {
-    color: #0366d6;
-  }
-
-  .archive__item-excerpt {
-    color: #666;
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    line-height: 1.5;
-  }
-
-  .archive__item-body {
-    color: #333;
-    line-height: 1.6;
-  }
-
-  /* 响应式设计 */
-  @media screen and (max-width: 768px) {
-    .project-container {
-      flex-direction: column;
-    }
-
-    .project-image {
-      flex: none;
-      max-width: 100%;
-    }
-
-    .project-content {
-      flex: none;
-      width: 100%;
-    }
-  }
+}
 </style>
