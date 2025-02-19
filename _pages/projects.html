@@ -6,7 +6,6 @@ author_profile: true
 ---
 
 <div class="archive">
-  <h1 class="page__title" style="margin-left: -400px;">Projects</h1>
   {% for post in site.projects %}
     <div class="project-item" style="margin-bottom: 2em; margin-left: -400px;">
       <div class="project-container">
@@ -46,14 +45,9 @@ author_profile: true
   margin: 0 auto !important;
 }
 
-.page__title {
-  position: relative !important;
-  margin-left: -400px !important;  /* 添加标题左移 */
-}
-
 .project-item {
   position: relative !important;
-  margin-left: -400px !important;
+  margin-left: -400px !important;  /* 改为-400px */
 }
 
 .project-container {
@@ -111,7 +105,6 @@ author_profile: true
 }
 
 @media screen and (max-width: 768px) {
-  .page__title,
   .project-item {
     margin-left: 0 !important;  /* 移动端取消左移 */
     padding: 0 20px !important;
