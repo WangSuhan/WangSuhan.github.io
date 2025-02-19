@@ -1,5 +1,5 @@
 ---
-title: "Portfolio item number 1"
+title: ""
 excerpt: "<div style='display: flex; align-items: center; gap: 20px;'><img src='/images/500x300.png' style='width: 200px; height: auto;'/><div><h3>Portfolio item number 1</h3><p>Short description of portfolio item number 1</p></div></div>"
 collection: portfolio
 ---
