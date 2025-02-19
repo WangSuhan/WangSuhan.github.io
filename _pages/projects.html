@@ -43,7 +43,10 @@ author_profile: true
 .archive {
   max-width: 800px !important;
   margin: 0 auto !important;
+  margin-left: -400px !important;  /* 向左移动400px */
   padding-right: 0 !important;
+  position: relative !important;
+  left: 50% !important;  /* 配合负边距确保正确定位 */
 }
 
 .project-container {
@@ -101,6 +104,12 @@ author_profile: true
 }
 
 @media screen and (max-width: 768px) {
+  .archive {
+    margin-left: 0 !important;
+    left: 0 !important;
+    padding: 0 20px !important;
+  }
+
   .project-container {
     flex-direction: column !important;
   }
