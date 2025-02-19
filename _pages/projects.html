@@ -11,10 +11,14 @@ author_profile: true
       <div class="archive__item">
         <div class="archive__item-content">
           <h2 class="archive__item-title">{{ post.title }}</h2>
-          <div class="archive__item-excerpt">
-            {{ post.excerpt }}
+          {% if post.excerpt %}
+            <div class="archive__item-excerpt">
+              {{ post.excerpt }}
+            </div>
+          {% endif %}
+          <div class="archive__item-body">
+            {{ post.content | remove_first: post.excerpt }}
           </div>
-          {{ post.content }}
         </div>
       </div>
     </div>
