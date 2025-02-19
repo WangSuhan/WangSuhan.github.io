@@ -5,7 +5,7 @@ permalink: /projects/
 author_profile: true
 ---
 
-<div class="archive" style="width: 100% !important; padding-right: 0 !important;">
+<div class="archive custom-archive" style="width: 100% !important; padding-right: 0 !important;">
   {% for post in site.projects %}
     <div class="project-item" style="margin-bottom: 2em;">
       <div class="project-container">
@@ -40,11 +40,26 @@ author_profile: true
 </div>
 
 <style>
-.archive {
+body div.wrapper {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.archive.custom-archive {
+  float: none !important;
+  position: relative !important;
   max-width: 800px !important;
   margin: 0 !important;
-  margin-left: 0 !important;  /* 改为0px */
+  margin-left: 0 !important;
+  padding: 0 !important;
   padding-right: 0 !important;
+  transform: translateX(0) !important;
+}
+
+#main {
+  max-width: none !important;
+  padding: 0 !important;
+  margin-left: 0 !important;
 }
 
 .project-container {
@@ -102,9 +117,8 @@ author_profile: true
 }
 
 @media screen and (max-width: 768px) {
-  .archive {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
+  .archive.custom-archive {
+    margin: 0 20px !important;
   }
 
   .project-container {
