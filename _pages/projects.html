@@ -7,37 +7,36 @@ author_profile: true
 
 <div class="archive">
   <h1 class="page__title" style="margin-left: -200px;">Projects</h1>
-  {% for post in site.projects %}
-    <div class="project-item" style="margin-bottom: 2em; margin-left: -400px;">
-      <div class="project-container">
-        {% if post.header.teaser %}
-          <div class="project-image">
-            <img src="{{ post.header.teaser | relative_url }}" alt="">
-          </div>
-        {% endif %}
-        <div class="project-content">
-          <h2 class="project-title">
-            {% if post.repository_url %}
-              <a href="{{ post.repository_url }}" target="_blank">
-                {{ post.title }}
-                <i class="fab fa-github" aria-hidden="true"></i>
-              </a>
-            {% else %}
-              {{ post.title }}
-            {% endif %}
-          </h2>
-          {% if post.excerpt %}
-            <div class="project-excerpt">
-              {{ post.excerpt }}
+  <div class="project-list" style="margin-top: 2em;">
+    {% for post in site.projects %}
+      <div class="project-item" style="margin-bottom: 2em; margin-left: -400px;">
+        <div class="project-container">
+          {% if post.header.teaser %}
+            <div class="project-image">
+              <img src="{{ post.header.teaser | relative_url }}" alt="">
             </div>
           {% endif %}
-          <div class="project-body">
-            {{ post.content | remove_first: post.excerpt }}
+          <div class="project-content">
+            {% if post.repository_url %}
+              <div class="project-link">
+                <a href="{{ post.repository_url }}" target="_blank">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+              </div>
+            {% endif %}
+            {% if post.excerpt %}
+              <div class="project-excerpt">
+                {{ post.excerpt }}
+              </div>
+            {% endif %}
+            <div class="project-body">
+              {{ post.content | remove_first: post.excerpt }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
 
 <style>
@@ -48,17 +47,18 @@ author_profile: true
 
 .page__title {
   position: relative !important;
-  margin-left: -200px !important;  /* 标题左移量改为-200px */
+  margin-left: -200px !important;
+  margin-bottom: 1em !important;
+}
+
+.project-list {
+  margin-top: 2em !important;
 }
 
 .project-item {
   position: relative !important;
   margin-left: -400px !important;
-}
-
-/* 隐藏第二个Projects标题 */
-.project-title:first-child {
-  display: none !important;
+  margin-bottom: 2em !important;
 }
 
 .project-container {
@@ -89,19 +89,22 @@ author_profile: true
   min-width: 0 !important;
   width: calc(100% - 230px) !important;
   padding-left: 0 !important;
+  position: relative !important;
 }
 
-.project-title {
-  margin: 0 0 15px 0 !important;
+.project-link {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+.project-link a {
+  text-decoration: none !important;
+  color: #333 !important;
   font-size: 1.5em !important;
 }
 
-.project-title a {
-  text-decoration: none !important;
-  color: #333 !important;
-}
-
-.project-title a:hover {
+.project-link a:hover {
   color: #0366d6 !important;
 }
 
@@ -115,10 +118,19 @@ author_profile: true
   line-height: 1.6 !important;
 }
 
+/* 确保内容正确显示 */
+.project-body > * {
+  margin-bottom: 1em !important;
+}
+
+.project-body > *:last-child {
+  margin-bottom: 0 !important;
+}
+
 @media screen and (max-width: 768px) {
   .page__title,
   .project-item {
-    margin-left: 0 !important;  /* 移动端取消左移 */
+    margin-left: 0 !important;
     padding: 0 20px !important;
   }
 
