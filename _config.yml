@@ -22,7 +22,7 @@ repository               : "wangsuhan/wangsuhan.github.io/"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "photo.jpeg"
   name             : "Bowen Huang"
   pronouns         : # example: "she/her"  
   bio              : ""
