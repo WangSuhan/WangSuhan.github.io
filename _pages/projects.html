@@ -5,9 +5,23 @@ permalink: /projects/
 author_profile: true
 ---
 
-{% include base_path %}
+{% raw %}
+<div class="grid__wrapper">
+  {% for post in site.projects %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
 
+<!-- 用于调试：显示项目数量 -->
+<div>
+  Number of projects: {{ site.projects.size }}
+</div>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
+<!-- 用于调试：直接输出项目内容 -->
+{% for project in site.projects %}
+  <div style="margin-bottom: 2em;">
+    <h3>{{ project.title }}</h3>
+    {{ project.content }}
+  </div>
 {% endfor %}
+{% endraw %}
