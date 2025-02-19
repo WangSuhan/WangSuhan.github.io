@@ -1,14 +1,124 @@
 ---
 layout: archive
-title: "Portfolio"
-permalink: /portfolio/
+title: "Projects"
+permalink: /projects/
 author_profile: true
 ---
 
-{% include base_path %}
+<div class="archive" style="width: 100% !important; padding-right: 0 !important;">
+  {% for post in site.projects %}
+    <div class="project-item" style="margin-bottom: 2em;">
+      <div class="project-container">
+        {% if post.header.teaser %}
+          <div class="project-image">
+            <img src="{{ post.header.teaser | relative_url }}" alt="">
+          </div>
+        {% endif %}
+        <div class="project-content">
+          <h2 class="project-title">
+            {% if post.repository_url %}
+              <a href="{{ post.repository_url }}" target="_blank">
+                {{ post.title }}
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            {% else %}
+              {{ post.title }}
+            {% endif %}
+          </h2>
+          {% if post.excerpt %}
+            <div class="project-excerpt">
+              {{ post.excerpt }}
+            </div>
+          {% endif %}
+          <div class="project-body">
+            {{ post.content | remove_first: post.excerpt }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
+<style>
+.archive {
+  max-width: 800px !important;
+  margin: 0 !important;
+  margin-left: 200px !important;  /* 固定左边距 */
+  padding-right: 0 !important;
+}
 
-{% for post in site.projects %}
-  {% include archive-single.html %}
-{% endfor %}
+.project-container {
+  display: flex !important;
+  gap: 30px !important;
+  background: #fff !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+  margin: 0 !important;
+}
 
+.project-image {
+  flex: 0 0 200px !important;
+  min-width: 200px !important;
+  margin: 0 !important;
+}
+
+.project-image img {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 4px !important;
+  margin: 0 !important;
+}
+
+.project-content {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: calc(100% - 230px) !important;
+  padding-left: 0 !important;
+}
+
+.project-title {
+  margin: 0 0 15px 0 !important;
+  font-size: 1.5em !important;
+}
+
+.project-title a {
+  text-decoration: none !important;
+  color: #333 !important;
+}
+
+.project-title a:hover {
+  color: #0366d6 !important;
+}
+
+.project-excerpt {
+  margin-bottom: 15px !important;
+  color: #666 !important;
+}
+
+.project-body {
+  color: #333 !important;
+  line-height: 1.6 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .archive {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  .project-container {
+    flex-direction: column !important;
+  }
+
+  .project-image {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  .project-content {
+    width: 100% !important;
+    padding: 15px 0 0 0 !important;
+  }
+}
+</style>
