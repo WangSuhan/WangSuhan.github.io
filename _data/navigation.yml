@@ -6,7 +6,7 @@
 
 main:
   - title: "Publications"
-    url: wangwuhan.github.io/publications/
+    url: /publications/
 
   - title: "Talks"
     url: /talks/    
