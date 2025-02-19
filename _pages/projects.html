@@ -5,9 +5,9 @@ permalink: /projects/
 author_profile: true
 ---
 
-<div class="archive custom-archive" style="width: 100% !important; padding-right: 0 !important;">
+<div class="archive">
   {% for post in site.projects %}
-    <div class="project-item" style="margin-bottom: 2em;">
+    <div class="project-item" style="margin-bottom: 2em; margin-left: -200px;">
       <div class="project-container">
         {% if post.header.teaser %}
           <div class="project-image">
@@ -40,26 +40,14 @@ author_profile: true
 </div>
 
 <style>
-body div.wrapper {
-  max-width: none !important;
-  padding: 0 !important;
-}
-
-.archive.custom-archive {
-  float: none !important;
-  position: relative !important;
+.archive {
   max-width: 800px !important;
-  margin: 0 !important;
-  margin-left: 0 !important;
-  padding: 0 !important;
-  padding-right: 0 !important;
-  transform: translateX(0) !important;
+  margin: 0 auto !important;
 }
 
-#main {
-  max-width: none !important;
-  padding: 0 !important;
-  margin-left: 0 !important;
+.project-item {
+  position: relative !important;
+  margin-left: -200px !important;  /* 只移动项目内容 */
 }
 
 .project-container {
@@ -117,8 +105,9 @@ body div.wrapper {
 }
 
 @media screen and (max-width: 768px) {
-  .archive.custom-archive {
-    margin: 0 20px !important;
+  .project-item {
+    margin-left: 0 !important;  /* 移动端取消左移 */
+    padding: 0 20px !important;
   }
 
   .project-container {
