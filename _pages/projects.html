@@ -5,23 +5,18 @@ permalink: /projects/
 author_profile: true
 ---
 
-{% raw %}
 <div class="grid__wrapper">
   {% for post in site.projects %}
-    {% include archive-single.html type="grid" %}
+    <div class="grid__item">
+      <div class="archive__item">
+        <div class="archive__item-content">
+          <h2 class="archive__item-title">{{ post.title }}</h2>
+          <div class="archive__item-excerpt">
+            {{ post.excerpt }}
+          </div>
+          {{ post.content }}
+        </div>
+      </div>
+    </div>
   {% endfor %}
 </div>
-
-<!-- 用于调试：显示项目数量 -->
-<div>
-  Number of projects: {{ site.projects.size }}
-</div>
-
-<!-- 用于调试：直接输出项目内容 -->
-{% for project in site.projects %}
-  <div style="margin-bottom: 2em;">
-    <h3>{{ project.title }}</h3>
-    {{ project.content }}
-  </div>
-{% endfor %}
-{% endraw %}
