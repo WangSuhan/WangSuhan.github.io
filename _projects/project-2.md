@@ -1,8 +1,8 @@
 ---
-title: "High-Stiffness Configuration Selection of Robotic Arm by Reinforcement Learning"
-excerpt: "Train an agent that can make high stiffness configuration decision"
+title: "Modeling of Library Flow Evacuation"
+excerpt: "Pedestrian evacuation simulation in the library."
 collection: projects
-repository_url: "https://github.com/WangSuhan/High-Stiffness-Configuration-Selection-of-Robotic-Arm-by-Reinforcement-Learning"  
+repository_url: "https://github.com/WangSuhan/library-evacuation-model"  
 header:
   teaser: "/images/500x300.png"  
 ---
