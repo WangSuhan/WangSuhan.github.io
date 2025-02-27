@@ -4,5 +4,5 @@ excerpt: ""
 collection: projects
 repository_url: "https://github.com/WangSuhan/Motion-control-of-robotic-arm-UR5-based-on-MATLAB-and-Coppeliasim"  
 header:
-  teaser: "/images/500x300.png"  
+  teaser: "/images/FBROBOT.PNG"  
 ---
